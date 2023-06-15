@@ -394,6 +394,11 @@ class CheckEmail(Resource):
 
 api.add_resource(CheckEmail, "/check-email")
 
+# @app.route('/')
+# @app.route('/<int:id>')
+# def index(id=0):
+#     return render_template("index.html")
+
 
 api.add_resource(HomePage, '/', endpoint='home-page')
 api.add_resource(SignUp, '/signup', endpoint='signup')
