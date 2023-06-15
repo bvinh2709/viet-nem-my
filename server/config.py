@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from flask_migrate import Migrate
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
@@ -8,14 +8,24 @@ from flask_bcrypt import Bcrypt
 from datetime import timedelta
 from dotenv import load_dotenv
 import os
+from flask.helpers import send_from_directory
 
 app = Flask(
     __name__,
-    # static_url_path='',
+    static_folder='client/build',
+    static_url_path='',
     # static_folder='../client/build',
     # template_folder='../client/build'
-
     )
+
+@app.route('/api', method=['GET'])
+@cross_origin()
+def index():
+    return {'message': '200: Welcome to our Home Page'}, 200
+
+@app.route('/')
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
 
 load_dotenv()
 app.secret_key = os.environ.get('SECRET_KEY')

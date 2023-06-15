@@ -16,9 +16,10 @@ from dotenv import load_dotenv
 #         return {'error': 'Unauthorized, Please log in'}, 401
 
 load_dotenv()
-class HomePage(Resource):
-    def get(self):
-        return {'message': '200: Welcome to our Home Page'}, 200
+
+# class HomePage(Resource):
+#     def get(self):
+#         return {'message': '200: Welcome to our Home Page'}, 200
 
 
 
