@@ -30,7 +30,8 @@ def serve():
 
 load_dotenv()
 app.secret_key = os.environ.get('SECRET_KEY')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.permanent_session_lifetime = timedelta(days=30)
